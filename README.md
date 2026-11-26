@@ -119,11 +119,6 @@ ngspice netlist_CMOS_NAND.cir                                  # run a netlist
 octave --quiet --eval "addpath('tools'); plot_waveforms('CMOS_NAND.dat.ngspice')"
 ```
 
-## Continuous integration
-
-`.github/workflows/ci.yml` runs the Python unit tests, the gate verification
-report and the Verilog testbenches on every push and pull request.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
