@@ -1,0 +1,21 @@
+# Qucs-S / ngspice working files (committed *.dat.ngspice datasets are kept)
+*.dat
+spice4qucs.*
+*.plot
+*.raw
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Simulation and HDL build products
+build/
+*.vvp
+
+# Editors and OS files
+*.swp
+*~
+.DS_Store

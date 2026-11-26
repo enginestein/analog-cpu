@@ -1,0 +1,19 @@
+// Branch test program for tb_branch.v.
+// Exercises a taken JZ, a not-taken JZ and an unconditional JMP.
+// Final state: acc = 3, pc = A, halted = 1.
+00  // 0: LDI 0       acc = 0
+A5  // 1: JZ  5       zero -> pc = 5
+1F  // 2: ADD F       skipped
+F0  // 3: HLT         skipped
+00  // 4: LDI 0       skipped
+03  // 5: LDI 3       acc = 3
+A2  // 6: JZ  2       not taken (acc != 0)
+99  // 7: JMP 9       pc = 9
+1F  // 8: ADD F       skipped
+F0  // 9: HLT
+00  // 0A: NOP (unused ROM)
+00  // 0B: NOP
+00  // 0C: NOP
+00  // 0D: NOP
+00  // 0E: NOP
+00  // 0F: NOP

@@ -1,0 +1,24 @@
+* Qucs 26.1.1  /home/indresh/Desktop/ANALOG_CPU/CMOS_NOR.sch
+.INCLUDE "/usr/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+MT1 _net0 INPUTA _net1 _net1 MMOD_T1 L=1UM W=1UM Ad=0.0 As=0.0 Pd=0.0M Ps=0.0M
+.MODEL MMOD_T1 PMOS (Vt0=-1.0V Kp=2E-5 Gamma=0.0 Phi=0.6 Lambda=0.0 Rd=0.0 Rs=0.0 Is=1E-14 Ld=0.0 Tox=0.1UM Cgso=0.0 Cgdo=0.0 Cgbo=0.0 Cbd=0.0 Cbs=0.0 Pb=0.8 Mj=0.5 Fc=0.5 Cjsw=0.0 Mjsw=0.33 Tpg=1 Uo=600.0 Rsh=0.0 Cj=0.0 Js=0.0 Kf=0.0 Af=1.0 Tnom=26.85 )
+MT2 OUTPUT INPUTB _net0 _net0 MMOD_T2 L=1UM W=1UM Ad=0.0 As=0.0 Pd=0.0M Ps=0.0M
+.MODEL MMOD_T2 PMOS (Vt0=-1.0V Kp=2E-5 Gamma=0.0 Phi=0.6 Lambda=0.0 Rd=0.0 Rs=0.0 Is=1E-14 Ld=0.0 Tox=0.1UM Cgso=0.0 Cgdo=0.0 Cgbo=0.0 Cbd=0.0 Cbs=0.0 Pb=0.8 Mj=0.5 Fc=0.5 Cjsw=0.0 Mjsw=0.33 Tpg=1 Uo=600.0 Rsh=0.0 Cj=0.0 Js=0.0 Kf=0.0 Af=1.0 Tnom=26.85 )
+MT3 OUTPUT INPUTA 0 0 MMOD_T3 L=1UM W=1UM Ad=0.0 As=0.0 Pd=0.0M Ps=0.0M
+.MODEL MMOD_T3 NMOS (Vt0=1.0 Kp=2E-5 Gamma=0.0 Phi=0.6 Lambda=0.0 Rd=0.0 Rs=0.0 Is=1E-14 Ld=0.0 Tox=0.1UM Cgso=0.0 Cgdo=0.0 Cgbo=0.0 Cbd=0.0 Cbs=0.0 Pb=0.8 Mj=0.5 Fc=0.5 Cjsw=0.0 Mjsw=0.33 Tpg=1 Uo=600.0 Rsh=0.0 Cj=0.0 Js=0.0 Kf=0.0 Af=1.0 Tnom=26.85 )
+MT4 OUTPUT INPUTB 0 0 MMOD_T4 L=1UM W=1UM Ad=0.0 As=0.0 Pd=0.0M Ps=0.0M
+.MODEL MMOD_T4 NMOS (Vt0=1.0 Kp=2E-5 Gamma=0.0 Phi=0.6 Lambda=0.0 Rd=0.0 Rs=0.0 Is=1E-14 Ld=0.0 Tox=0.1UM Cgso=0.0 Cgdo=0.0 Cgbo=0.0 Cbd=0.0 Cbs=0.0 Pb=0.8 Mj=0.5 Fc=0.5 Cjsw=0.0 Mjsw=0.33 Tpg=1 Uo=600.0 Rsh=0.0 Cj=0.0 Js=0.0 Kf=0.0 Af=1.0 Tnom=26.85 )
+V1 _net1 0 DC 5
+V3 INPUTA 0 DC 0 PULSE(0 5 1M 1N 1N {(3M)-(1M)-(1N)-(1N)}) AC 0
+V4 INPUTB 0 DC 0 PULSE( 0 5 0.5M 1N 1N 0.5M {(0.5M)+(0.5M)+(1N)+(1N)} )  AC 0
+
+.control
+
+tran 1.00503e-05 0.002 0 
+write spice4qucs.tr1.plot v(INPUTA) v(INPUTB) v(OUTPUT)
+destroy all
+reset
+
+exit
+.endc
+.END

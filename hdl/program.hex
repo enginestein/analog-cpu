@@ -1,0 +1,18 @@
+// Test program for tb_cpu.v -- one 8-bit instruction per line.
+// Final state: acc = 3, mem[0] = C, pc = A, halted = 1.
+0A  // 00: LDI A       acc = A
+13  // 01: ADD 3       acc = D
+2C  // 02: SUB C       acc = 1
+3B  // 03: AND B       acc = 1
+42  // 04: OR  2       acc = 3
+5F  // 05: XOR F       acc = C
+70  // 06: STA 0       mem[0] = C
+80  // 07: LDA 0       acc = C
+60  // 08: NOT         acc = 3
+F0  // 09: HLT
+00  // 0A: NOP (unused ROM)
+00  // 0B: NOP
+00  // 0C: NOP
+00  // 0D: NOP
+00  // 0E: NOP
+00  // 0F: NOP
